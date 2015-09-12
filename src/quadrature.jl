@@ -4,7 +4,7 @@ export QuadratureRule, fejer
 import Base: length, one, zero, convert
 
 
-immutable type QuadratureRule{T<:Real}
+immutable QuadratureRule{T<:Real}
     x::Vector{T}
     w::Vector{T}
 
@@ -111,7 +111,7 @@ function fejer!{T<:Real}(n::Integer, x::Vector{T}, w::Vector{T})
 end
 
 
-function fejer(T, n::Integer)
+function fejer(T::DataType, n::Integer)
     x = Array(T, n)
     w = Array(T, n)
     fejer!(n, x, w)
